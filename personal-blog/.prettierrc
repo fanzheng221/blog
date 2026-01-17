@@ -1,0 +1,28 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "plugins": ["prettier-plugin-organize-imports"],
+  "importOrder": [
+    "react",
+    "react-dom",
+    "<THIRD_PARTY>",
+    "@/components",
+    "@/pages",
+    "@/lib",
+    "@/contexts",
+    "@/hooks",
+    "@/data",
+    "@/types",
+    "^@/(.*)$",
+    "^[./]"
+  ],
+  "importOrderParser": "typescript",
+  "importOrderTypeScriptVersion": "5.0.0",
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
