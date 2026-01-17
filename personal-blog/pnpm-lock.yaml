@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^5.2.2
-        version: 5.2.2(react-hook-form@7.71.0(react@19.2.3))
+        version: 5.2.2(react-hook-form@7.71.1(react@19.2.3))
       '@radix-ui/react-accordion':
         specifier: ^1.2.12
         version: 1.2.12(@types/react-dom@19.2.3(@types/react@19.2.8))(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -127,13 +127,13 @@ importers:
         version: 19.2.3(react@19.2.3)
       react-hook-form:
         specifier: ^7.71.0
-        version: 7.71.0(react@19.2.3)
+        version: 7.71.1(react@19.2.3)
       react-markdown:
         specifier: ^10.1.0
         version: 10.1.0(@types/react@19.2.8)(react@19.2.3)
       react-resizable-panels:
         specifier: ^4.4.0
-        version: 4.4.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 4.4.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       react-router-dom:
         specifier: ^7.12.0
         version: 7.12.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -161,7 +161,7 @@ importers:
         version: 2.16.3(@parcel/core@2.16.3(@swc/helpers@0.5.18))(@swc/helpers@0.5.18)
       '@types/node':
         specifier: ^24.10.1
-        version: 24.10.7
+        version: 24.10.9
       '@types/react':
         specifier: ^19.2.5
         version: 19.2.8
@@ -170,7 +170,7 @@ importers:
         version: 19.2.3(@types/react@19.2.8)
       '@vitejs/plugin-react':
         specifier: ^5.1.1
-        version: 5.1.2(vite@7.3.1(@types/node@24.10.7)(jiti@1.21.7)(lightningcss@1.30.2)(yaml@2.8.2))
+        version: 5.1.2(vite@7.3.1(@types/node@24.10.9)(jiti@1.21.7)(lightningcss@1.30.2)(yaml@2.8.2))
       autoprefixer:
         specifier: ^10.4.23
         version: 10.4.23(postcss@8.5.6)
@@ -182,7 +182,7 @@ importers:
         version: 10.1.8(eslint@9.39.2(jiti@1.21.7))
       eslint-plugin-prettier:
         specifier: ^5.5.4
-        version: 5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@1.21.7)))(eslint@9.39.2(jiti@1.21.7))(prettier@3.7.4)
+        version: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@1.21.7)))(eslint@9.39.2(jiti@1.21.7))(prettier@3.8.0)
       eslint-plugin-react-hooks:
         specifier: ^7.0.1
         version: 7.0.1(eslint@9.39.2(jiti@1.21.7))
@@ -209,10 +209,10 @@ importers:
         version: 8.5.6
       prettier:
         specifier: ^3.7.4
-        version: 3.7.4
+        version: 3.8.0
       prettier-plugin-organize-imports:
         specifier: ^4.3.0
-        version: 4.3.0(prettier@3.7.4)(typescript@5.9.3)
+        version: 4.3.0(prettier@3.8.0)(typescript@5.9.3)
       tailwindcss:
         specifier: 3.4.1
         version: 3.4.1
@@ -227,7 +227,7 @@ importers:
         version: 8.53.0(eslint@9.39.2(jiti@1.21.7))(typescript@5.9.3)
       vite:
         specifier: ^7.2.4
-        version: 7.3.1(@types/node@24.10.7)(jiti@1.21.7)(lightningcss@1.30.2)(yaml@2.8.2)
+        version: 7.3.1(@types/node@24.10.9)(jiti@1.21.7)(lightningcss@1.30.2)(yaml@2.8.2)
 
 packages:
 
@@ -1923,8 +1923,8 @@ packages:
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
 
-  '@types/node@24.10.7':
-    resolution: {integrity: sha512-+054pVMzVTmRQV8BhpGv3UyfZ2Llgl8rdpDTon+cUH9+na0ncBVXj3wTUKh14+Kiz18ziM3b4ikpP5/Pc0rQEQ==}
+  '@types/node@24.10.9':
+    resolution: {integrity: sha512-ne4A0IpG3+2ETuREInjPNhUGis1SFjv1d5asp8MzEAGtOZeTeHVDOYqOgqfhvseqg/iXty2hjBf1zAOb7RNiNw==}
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -2064,8 +2064,8 @@ packages:
   base-x@3.0.11:
     resolution: {integrity: sha512-xz7wQ8xDhdyP7tQxwdteLYeFfS68tSMNCZ/Y37WJ4bhGfKPpqEIlmIyueQHqOyoPhE6xNUqjzRr8ra0eF9VRvA==}
 
-  baseline-browser-mapping@2.9.14:
-    resolution: {integrity: sha512-B0xUquLkiGLgHhpPBqvl7GWegWBUNuujQ6kXd/r1U38ElPT6Ok8KZ8e+FpUGEc2ZoRQUzq/aUnaKFc/svWUGSg==}
+  baseline-browser-mapping@2.9.15:
+    resolution: {integrity: sha512-kX8h7K2srmDyYnXRIppo4AH/wYgzWVCs+eKr3RusRSQ5PvRYoEFmR/I0PbdTjKFAoKqp5+kbxnNTFO9jOfSVJg==}
     hasBin: true
 
   binary-extensions@2.3.0:
@@ -2316,8 +2316,8 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-plugin-prettier@5.5.4:
-    resolution: {integrity: sha512-swNtI95SToIz05YINMA6Ox5R057IMAmWZ26GqPxusAp1TZzj+IdY9tXNWWD3vkF/wEqydCONcwjTFpxybBqZsg==}
+  eslint-plugin-prettier@5.5.5:
+    resolution: {integrity: sha512-hscXkbqUZ2sPithAuLm5MXL+Wph+U7wHngPBv9OMWwlP8iaflyxpjTYZkmdgB4/vPIhemRlBEoLrH7UC1n7aUw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@types/eslint': '>=8.0.0'
@@ -3112,8 +3112,8 @@ packages:
       vue-tsc:
         optional: true
 
-  prettier@3.7.4:
-    resolution: {integrity: sha512-v6UNi1+3hSlVvv8fSaoUbggEM5VErKmmpGA7Pl3HF8V6uKY7rvClBOJlH6yNwQtfTueNkGVpOv/mtWL9L4bgRA==}
+  prettier@3.8.0:
+    resolution: {integrity: sha512-yEPsovQfpxYfgWNhCfECjG5AQaO+K3dp6XERmOepyPDVqcJm+bjyCVO3pmU+nAPe0N5dDvekfGezt/EIiRe1TA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3141,8 +3141,8 @@ packages:
     peerDependencies:
       react: ^19.2.3
 
-  react-hook-form@7.71.0:
-    resolution: {integrity: sha512-oFDt/iIFMV9ZfV52waONXzg4xuSlbwKUPvXVH2jumL1me5qFhBMc4knZxuXiZ2+j6h546sYe3ZKJcg/900/iHw==}
+  react-hook-form@7.71.1:
+    resolution: {integrity: sha512-9SUJKCGKo8HUSsCO+y0CtqkqI5nNuaDqTxyqPsZPqIwudpj4rCrAz/jZV+jn57bx5gtZKOh3neQu94DXMc+w5w==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -3181,8 +3181,8 @@ packages:
       '@types/react':
         optional: true
 
-  react-resizable-panels@4.4.0:
-    resolution: {integrity: sha512-vGH1rIhyDOL4RSWYTx3eatjDohDFIRxJCAXUOaeL9HyamptUnUezqndjMtBo9hQeaq1CIP0NBbc7ZV3lBtlgxA==}
+  react-resizable-panels@4.4.1:
+    resolution: {integrity: sha512-dpM9oI6rGlAq7VYDeafSRA1JmkJv8aNuKySR+tZLQQLfaeqTnQLSM52EcoI/QdowzsjVUCk6jViKS0xHWITVRQ==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
@@ -3344,8 +3344,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  synckit@0.11.11:
-    resolution: {integrity: sha512-MeQTA1r0litLUf0Rp/iisCaL8761lKAZHaimlbGK4j0HysC4PLfqygQj9srcs0m2RdtDYnF8UuYyKpbjHYp7Jw==}
+  synckit@0.11.12:
+    resolution: {integrity: sha512-Bh7QjT8/SuKUIfObSXNHNSK6WHo6J1tHCqJsuaFDP7gP0fkzSfTxI8y85JrppZ0h8l0maIgc2tfuZQ6/t3GtnQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
   tailwind-merge@3.4.0:
@@ -3850,10 +3850,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.10': {}
 
-  '@hookform/resolvers@5.2.2(react-hook-form@7.71.0(react@19.2.3))':
+  '@hookform/resolvers@5.2.2(react-hook-form@7.71.1(react@19.2.3))':
     dependencies:
       '@standard-schema/utils': 0.3.0
-      react-hook-form: 7.71.0(react@19.2.3)
+      react-hook-form: 7.71.1(react@19.2.3)
 
   '@humanfs/core@0.19.1': {}
 
@@ -5469,7 +5469,7 @@ snapshots:
 
   '@types/ms@2.1.0': {}
 
-  '@types/node@24.10.7':
+  '@types/node@24.10.9':
     dependencies:
       undici-types: 7.16.0
 
@@ -5578,7 +5578,7 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@vitejs/plugin-react@5.1.2(vite@7.3.1(@types/node@24.10.7)(jiti@1.21.7)(lightningcss@1.30.2)(yaml@2.8.2))':
+  '@vitejs/plugin-react@5.1.2(vite@7.3.1(@types/node@24.10.9)(jiti@1.21.7)(lightningcss@1.30.2)(yaml@2.8.2))':
     dependencies:
       '@babel/core': 7.28.6
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.28.6)
@@ -5586,7 +5586,7 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.53
       '@types/babel__core': 7.20.5
       react-refresh: 0.18.0
-      vite: 7.3.1(@types/node@24.10.7)(jiti@1.21.7)(lightningcss@1.30.2)(yaml@2.8.2)
+      vite: 7.3.1(@types/node@24.10.9)(jiti@1.21.7)(lightningcss@1.30.2)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -5649,7 +5649,7 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  baseline-browser-mapping@2.9.14: {}
+  baseline-browser-mapping@2.9.15: {}
 
   binary-extensions@2.3.0: {}
 
@@ -5668,7 +5668,7 @@ snapshots:
 
   browserslist@4.28.1:
     dependencies:
-      baseline-browser-mapping: 2.9.14
+      baseline-browser-mapping: 2.9.15
       caniuse-lite: 1.0.30001764
       electron-to-chromium: 1.5.267
       node-releases: 2.0.27
@@ -5888,12 +5888,12 @@ snapshots:
     dependencies:
       eslint: 9.39.2(jiti@1.21.7)
 
-  eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@1.21.7)))(eslint@9.39.2(jiti@1.21.7))(prettier@3.7.4):
+  eslint-plugin-prettier@5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@1.21.7)))(eslint@9.39.2(jiti@1.21.7))(prettier@3.8.0):
     dependencies:
       eslint: 9.39.2(jiti@1.21.7)
-      prettier: 3.7.4
+      prettier: 3.8.0
       prettier-linter-helpers: 1.0.1
-      synckit: 0.11.11
+      synckit: 0.11.12
     optionalDependencies:
       eslint-config-prettier: 10.1.8(eslint@9.39.2(jiti@1.21.7))
 
@@ -6872,12 +6872,12 @@ snapshots:
     dependencies:
       fast-diff: 1.3.0
 
-  prettier-plugin-organize-imports@4.3.0(prettier@3.7.4)(typescript@5.9.3):
+  prettier-plugin-organize-imports@4.3.0(prettier@3.8.0)(typescript@5.9.3):
     dependencies:
-      prettier: 3.7.4
+      prettier: 3.8.0
       typescript: 5.9.3
 
-  prettier@3.7.4: {}
+  prettier@3.8.0: {}
 
   property-information@7.1.0: {}
 
@@ -6899,7 +6899,7 @@ snapshots:
       react: 19.2.3
       scheduler: 0.27.0
 
-  react-hook-form@7.71.0(react@19.2.3):
+  react-hook-form@7.71.1(react@19.2.3):
     dependencies:
       react: 19.2.3
 
@@ -6944,7 +6944,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.8
 
-  react-resizable-panels@4.4.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+  react-resizable-panels@4.4.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
@@ -7151,7 +7151,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  synckit@0.11.11:
+  synckit@0.11.12:
     dependencies:
       '@pkgr/core': 0.2.9
 
@@ -7351,7 +7351,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@7.3.1(@types/node@24.10.7)(jiti@1.21.7)(lightningcss@1.30.2)(yaml@2.8.2):
+  vite@7.3.1(@types/node@24.10.9)(jiti@1.21.7)(lightningcss@1.30.2)(yaml@2.8.2):
     dependencies:
       esbuild: 0.27.2
       fdir: 6.5.0(picomatch@4.0.3)
@@ -7360,7 +7360,7 @@ snapshots:
       rollup: 4.55.1
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 24.10.7
+      '@types/node': 24.10.9
       fsevents: 2.3.3
       jiti: 1.21.7
       lightningcss: 1.30.2
