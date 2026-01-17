@@ -5,13 +5,18 @@ import { generateId } from '../utils/generateId.js';
 const { Pool } = pg;
 
 // Create connection pool
-export const pool = new Pool({
-  host: config.pgHost,
-  port: config.pgPort,
-  database: config.pgDatabase,
-  user: config.pgUser,
-  password: config.pgPassword,
-});
+// Support both DATABASE_URL (Railway) and individual params (local)
+export const pool = config.databaseUrl
+  ? new Pool({
+      connectionString: config.databaseUrl,
+    })
+  : new Pool({
+      host: config.pgHost,
+      port: config.pgPort,
+      database: config.pgDatabase,
+      user: config.pgUser,
+      password: config.pgPassword,
+    });
 
 // Initialize database schema
 export async function initializeDatabase() {

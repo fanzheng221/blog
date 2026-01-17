@@ -5,7 +5,8 @@ dotenv.config();
 export const config = {
   port: parseInt(process.env.PORT || '3001', 10),
   nodeEnv: process.env.NODE_ENV || 'development',
-  // PostgreSQL
+  // PostgreSQL - support both DATABASE_URL (Railway) and individual params (local)
+  databaseUrl: process.env.DATABASE_URL,
   pgHost: process.env.PG_HOST || 'localhost',
   pgPort: parseInt(process.env.PG_PORT || '5432', 10),
   pgDatabase: process.env.PG_DATABASE || 'personal_blog',
