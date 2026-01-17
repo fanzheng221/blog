@@ -1,3 +1,9 @@
+databases:
+  # PostgreSQL Database
+  - name: personal-blog-db
+    databaseName: personal_blog
+    user: blog_user
+
 services:
   # Web Service
   - type: web
@@ -20,8 +26,3 @@ services:
         sync: false
       - key: CORS_ORIGIN
         value: https://your-project.vercel.app  # Replace with your Vercel URL
-
-  # PostgreSQL Database
-  - type: pserv
-    name: personal-blog-db
-    plan: free
