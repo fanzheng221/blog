@@ -61,3 +61,11 @@ coverage/
 *.cert
 *.crt
 secrets/
+
+# Generated files
+
+# AI assistant documentation files (private use only)
+*.md
+!README.md
+!backend/POSTGRES_SETUP.md
+!personal-blog/README.md
