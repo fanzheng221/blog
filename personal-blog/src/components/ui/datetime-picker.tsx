@@ -2,9 +2,9 @@ import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import { Label } from '@/components/ui/label'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
 import { ChevronDownIcon } from 'lucide-react'
 import React from 'react'
-import { cn } from '@/lib/utils'
 
 interface DateTimePickerProps {
   id?: string
@@ -135,11 +135,7 @@ export function DateTimePicker({
         </Popover>
 
         {/* 时间选择 - 使用 Popover + 轮盘选择器 */}
-        <TimePickerPopover
-          value={selectedTime}
-          onChange={handleTimeChange}
-          disabled={disabled}
-        />
+        <TimePickerPopover value={selectedTime} onChange={handleTimeChange} disabled={disabled} />
       </div>
     </div>
   )
@@ -185,11 +181,7 @@ function TimePickerPopover({ value, onChange, disabled }: TimePickerPopoverProps
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          disabled={disabled}
-          className="w-32 justify-between font-normal"
-        >
+        <Button variant="outline" disabled={disabled} className="w-32 justify-between font-normal">
           {formatDisplayTime()}
           <ChevronDownIcon className="h-4 w-4" />
         </Button>
@@ -210,7 +202,8 @@ function TimePickerPopover({ value, onChange, disabled }: TimePickerPopoverProps
                   }}
                   className={cn(
                     'w-12 py-1 text-sm rounded hover:bg-accent hover:text-accent-foreground',
-                    hours === i && 'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground'
+                    hours === i &&
+                      'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground'
                   )}
                 >
                   {i.toString().padStart(2, '0')}
@@ -233,7 +226,8 @@ function TimePickerPopover({ value, onChange, disabled }: TimePickerPopoverProps
                   }}
                   className={cn(
                     'w-12 py-1 text-sm rounded hover:bg-accent hover:text-accent-foreground',
-                    minutes === i && 'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground'
+                    minutes === i &&
+                      'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground'
                   )}
                 >
                   {i.toString().padStart(2, '0')}

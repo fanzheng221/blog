@@ -226,9 +226,7 @@ export default function CategoryManagement() {
         <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>
-                {editingCategory ? '编辑分类' : '新建分类'}
-              </AlertDialogTitle>
+              <AlertDialogTitle>{editingCategory ? '编辑分类' : '新建分类'}</AlertDialogTitle>
               <AlertDialogDescription>
                 {editingCategory ? '修改分类信息' : '创建新的文章分类'}
               </AlertDialogDescription>
@@ -286,7 +284,11 @@ export default function CategoryManagement() {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel disabled={isDeleting}>取消</AlertDialogCancel>
-              <AlertDialogAction onClick={handleDelete} disabled={isDeleting} className="bg-red-600 hover:bg-red-700">
+              <AlertDialogAction
+                onClick={handleDelete}
+                disabled={isDeleting}
+                className="bg-red-600 hover:bg-red-700"
+              >
                 {isDeleting ? (
                   <>
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />

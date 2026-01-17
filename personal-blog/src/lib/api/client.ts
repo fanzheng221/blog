@@ -5,6 +5,7 @@ import type {
   ArticlesResponse,
   AuthResponse,
   CategoriesResponse,
+  Category,
   Comment,
   CommentsResponse,
   CreateArticleRequest,
@@ -12,7 +13,6 @@ import type {
   LoginRequest,
   RegisterRequest,
   UpdateArticleRequest,
-  Category
 } from './types'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'

@@ -22,76 +22,13 @@ export default defineConfig({
     // 自定义 rollup 选项
     rollupOptions: {
       output: {
-        // 手动代码拆分策略
-        manualChunks: (id) => {
-          // 只处理 node_modules 中的文件
-          if (!id.includes('node_modules')) {
-            return undefined
-          }
-
-          // React 核心
-          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
-            return 'react-vendor'
-          }
-
-          // React Router
-          if (id.includes('node_modules/react-router')) {
-            return 'router'
-          }
-
-          // UI 组件库 - Radix UI
-          if (id.includes('node_modules/@radix-ui')) {
-            return 'radix-ui'
-          }
-
-          // 图标库
-          if (id.includes('node_modules/lucide-react')) {
-            return 'icons'
-          }
-
-          // 表单相关
-          if (
-            id.includes('node_modules/react-hook-form') ||
-            id.includes('node_modules/@hookform') ||
-            id.includes('node_modules/zod')
-          ) {
-            return 'forms'
-          }
-
-          // Markdown 相关
-          if (
-            id.includes('node_modules/react-markdown') ||
-            id.includes('node_modules/remark') ||
-            id.includes('node_modules/rehype')
-          ) {
-            return 'markdown'
-          }
-
-          // 日期处理
-          if (id.includes('node_modules/date-fns')) {
-            return 'date-utils'
-          }
-
-          // 工具库
-          if (
-            id.includes('node_modules/axios') ||
-            id.includes('node_modules/clsx') ||
-            id.includes('node_modules/class-variance-authority') ||
-            id.includes('node_modules/tailwind-merge')
-          ) {
-            return 'utils'
-          }
-
-          // 轮播图和可调整面板
-          if (
-            id.includes('node_modules/embla-carousel') ||
-            id.includes('node_modules/react-resizable-panels')
-          ) {
-            return 'ui-components'
-          }
-
-          // 其他第三方库归入 vendor
-          return 'vendor'
+        manualChunks: {
+          'react-vendor': [
+              'react',
+              'react-dom',
+              'react-router-dom',
+              'react-router',
+           ],
         },
 
         // chunk 文件命名规范

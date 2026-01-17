@@ -77,8 +77,13 @@ export function ArticleCard({ article, variant = 'default' }: ArticleCardProps) 
             {article.author && (
               <>
                 <Avatar className="h-8 w-8">
-                  <AvatarImage src={article.author.avatar || undefined} alt={article.author.username} />
-                  <AvatarFallback>{article.author.username.slice(0, 2).toUpperCase()}</AvatarFallback>
+                  <AvatarImage
+                    src={article.author.avatar || undefined}
+                    alt={article.author.username}
+                  />
+                  <AvatarFallback>
+                    {article.author.username.slice(0, 2).toUpperCase()}
+                  </AvatarFallback>
                 </Avatar>
                 <span className="text-sm text-muted-foreground">{article.author.username}</span>
               </>

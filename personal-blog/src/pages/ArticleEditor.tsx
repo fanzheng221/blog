@@ -86,10 +86,8 @@ export default function ArticleEditor() {
   const disableDateTimePicker = isEditMode && !canEditScheduleTime
 
   // 判断预约发布按钮的显示逻辑
-  const showScheduleButton =
-    !isEditMode && formData.published_at // 新建模式 + 设置了预约时间
-  const showUpdateScheduleButton =
-    isEditMode && canEditScheduleTime && formData.published_at // 编辑模式 + 可修改预约时间 + 设置了预约时间
+  const showScheduleButton = !isEditMode && formData.published_at // 新建模式 + 设置了预约时间
+  const showUpdateScheduleButton = isEditMode && canEditScheduleTime && formData.published_at // 编辑模式 + 可修改预约时间 + 设置了预约时间
 
   const loadCategories = async () => {
     try {
@@ -288,7 +286,7 @@ export default function ArticleEditor() {
                 disabled={isSaving}
                 variant="default"
                 className={
-                  (showScheduleButton || showUpdateScheduleButton)
+                  showScheduleButton || showUpdateScheduleButton
                     ? 'bg-blue-600 hover:bg-blue-700 text-white'
                     : ''
                 }
@@ -483,7 +481,10 @@ export default function ArticleEditor() {
                     />
                     <p className="text-xs text-muted-foreground">
                       {disableDateTimePicker
-                        ? canEditScheduleTime === false && existingArticle?.status === 'scheduled' && existingArticle?.published_at && new Date(existingArticle.published_at) < new Date()
+                        ? canEditScheduleTime === false &&
+                          existingArticle?.status === 'scheduled' &&
+                          existingArticle?.published_at &&
+                          new Date(existingArticle.published_at) < new Date()
                           ? '预约发布时间已过期，无法修改'
                           : '编辑模式下不可修改预约发布时间'
                         : '设置后将自动在指定时间发布文章'}
