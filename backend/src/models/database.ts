@@ -20,19 +20,38 @@ export const pool = config.databaseUrl
       ssl: config.pgSsl ? { rejectUnauthorized: false } : false,
     });
 
-// Initialize database schema
-export async function initializeDatabase() {
-  try {
-    // Test connection
-    await pool.query('SELECT NOW()');
-    console.log('PostgreSQL connected successfully');
+// Initialize database schema with retry mechanism
+export async function initializeDatabase(maxRetries: number = 10, retryDelayMs: number = 2000) {
+  let lastError: any;
 
-    // Create tables if not exists
-    await createTables();
-  } catch (error) {
-    console.error('Database initialization error:', error);
-    throw error;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      // Test connection
+      await pool.query('SELECT NOW()');
+      console.log('PostgreSQL connected successfully');
+
+      // Create tables if not exists
+      await createTables();
+      return; // Success, exit function
+    } catch (error: any) {
+      lastError = error;
+      console.error(`Database initialization attempt ${attempt}/${maxRetries} failed:`, error.message);
+
+      if (attempt < maxRetries) {
+        const delay = retryDelayMs * attempt; // Exponential backoff
+        console.log(`Retrying in ${delay}ms...`);
+        await sleep(delay);
+      }
+    }
   }
+
+  // All retries failed
+  console.error(`Database initialization failed after ${maxRetries} attempts:`, lastError);
+  throw lastError;
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function createTables() {
