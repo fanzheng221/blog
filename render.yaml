@@ -25,4 +25,3 @@ services:
   - type: pserv
     name: personal-blog-db
     plan: free
-    databaseName: personal_blog_prod
