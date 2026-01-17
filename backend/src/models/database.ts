@@ -5,10 +5,11 @@ import { generateId } from '../utils/generateId.js';
 const { Pool } = pg;
 
 // Create connection pool
-// Support both DATABASE_URL (Railway) and individual params (local)
+// Support both DATABASE_URL (Zeabur, Railway) and individual params (local)
 export const pool = config.databaseUrl
   ? new Pool({
       connectionString: config.databaseUrl,
+      ssl: config.pgSsl ? { rejectUnauthorized: false } : false,
     })
   : new Pool({
       host: config.pgHost,
@@ -16,6 +17,7 @@ export const pool = config.databaseUrl
       database: config.pgDatabase,
       user: config.pgUser,
       password: config.pgPassword,
+      ssl: config.pgSsl ? { rejectUnauthorized: false } : false,
     });
 
 // Initialize database schema
