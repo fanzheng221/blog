@@ -24,6 +24,11 @@ export default defineConfig({
       output: {
         // 手动代码拆分策略
         manualChunks: (id) => {
+          // 只处理 node_modules 中的文件
+          if (!id.includes('node_modules')) {
+            return undefined
+          }
+
           // React 核心
           if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
             return 'react-vendor'
@@ -85,10 +90,8 @@ export default defineConfig({
             return 'ui-components'
           }
 
-          // 其他第三方库
-          if (id.includes('node_modules')) {
-            return 'vendor'
-          }
+          // 其他第三方库归入 vendor
+          return 'vendor'
         },
 
         // chunk 文件命名规范
