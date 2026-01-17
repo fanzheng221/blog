@@ -24,6 +24,5 @@ services:
   # PostgreSQL Database
   - type: pserv
     name: personal-blog-db
-    databaseName: personal_blog
-    user: blog_user
     plan: free
+    databaseName: personal_blog_prod
