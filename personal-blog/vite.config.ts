@@ -112,16 +112,7 @@ export default defineConfig({
           return 'assets/[ext]/[name]-[hash][extname]'
         },
       },
-    },
-
-    // 压缩配置
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: ['log', 'info'],
-        drop_debugger: true,
-      },
-    },
+    },    
 
     // CSS 代码拆分
     cssCodeSplit: true,
