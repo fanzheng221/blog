@@ -1,6 +1,6 @@
 import express from 'express';
 import type { Router } from 'express';
-import { generateArticle } from '../services/ai.service';
+import { generateArticle } from '../services/ai.service.js';
 import { authenticateToken, requireAdmin } from '../middleware/auth.js';
 
 const router:Router = express.Router();
