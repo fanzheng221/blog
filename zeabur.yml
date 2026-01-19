@@ -1,0 +1,52 @@
+# Zeabur 配置文件
+# 用于部署博客项目到 Zeabur 平台
+
+services:
+  # PostgreSQL 数据库服务
+  - type: postgresql
+    name: postgres-db
+    # Zeabur 会自动注入以下环境变量到后端服务：
+    # - DATABASE_URL (完整连接字符串)
+    # - POSTGRES_HOST
+    # - POSTGRES_PORT
+    # - POSTGRES_DBNAME
+    # - POSTGRES_USERNAME
+    # - POSTGRES_PASSWORD
+
+  # 后端 API 服务
+  - type: prebuilt
+    name: backend
+    # 从 backend 目录构建
+    path: ./backend
+    runtime: nodejs
+    # 构建命令
+    buildCommand: npm install && npm run build
+    # 启动命令
+    startCommand: npm run start
+    # 环境变量
+    env:
+      - NODE_ENV=production
+      - PG_SSL=true
+      - JWT_SECRET=${{ secrets.JWT_SECRET }}
+      - CORS_ORIGIN=${{ secrets.CORS_ORIGIN }}
+      - ZHIPUAI_API_KEY=${{ secrets.ZHIPUAI_API_KEY }}
+    # 依赖 PostgreSQL 服务，确保数据库先启动
+    dependsOn:
+      - postgres-db
+
+  # 前端服务
+  - type: prebuilt
+    name: frontend
+    # 从 personal-blog 目录构建
+    path: ./personal-blog
+    runtime: static
+    # 构建命令
+    buildCommand: pnpm install && pnpm build
+    # 输出目录
+    outputDir: dist
+    # 环境变量（如果需要）
+    env:
+      - VITE_API_URL=${{ secrets.VITE_API_URL }}
+    # 依赖后端服务（可选，如果需要知道后端地址）
+    dependsOn:
+      - backend
