@@ -5,7 +5,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { useAuth } from '@/contexts/AuthContext'
 import type { Comment } from '@/lib/api'
 import { commentsApi } from '@/lib/api'
-import { Loader2, LogIn, MessageCircle } from 'lucide-react'
+import { Loader2, MessageCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
@@ -125,11 +125,7 @@ export function CommentSection({ articleSlug }: CommentSectionProps) {
           ) : (
             <div className="text-center py-8">
               <MessageCircle className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-              <p className="text-muted-foreground mb-4">登录后发表评论</p>
-              <Button onClick={() => navigate('/login')}>
-                <LogIn className="h-4 w-4 mr-2" />
-                登录
-              </Button>
+              <p className="text-muted-foreground">登录后发表评论</p>
             </div>
           )}
         </CardContent>

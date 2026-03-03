@@ -1,56 +1,8 @@
 import jwt from 'jsonwebtoken';
 import { config } from '../config/index.js';
-import { createUser, getUserByEmail, validatePassword } from '../models/user.js';
+import { getUserByEmail, validatePassword } from '../models/user.js';
 import type { Request, Response } from 'express';
-import type { CreateUserData, LoginData, JWTPayload } from '../types/index.js';
-
-export async function register(req: Request, res: Response) {
-  try {
-    const { username, email, password }: CreateUserData = req.body;
-
-    // Validate input
-    if (!username || !email || !password) {
-      return res.status(400).json({ error: 'Username, email, and password are required' });
-    }
-
-    if (password.length < 8) {
-      return res.status(400).json({ error: 'Password must be at least 8 characters' });
-    }
-
-    // Check if user already exists
-    const existingUser = await getUserByEmail(email);
-    if (existingUser) {
-      return res.status(409).json({ error: 'User with this email already exists' });
-    }
-
-    // Create user
-    const user = await createUser({ username, email, password });
-
-    // Generate token
-    const payload: JWTPayload = {
-      userId: user.id,
-      email: user.email,
-      role: user.role,
-    };
-
-    const token = jwt.sign(payload, config.jwtSecret, { expiresIn: '7d' });
-
-    res.status(201).json({
-      user: {
-        id: user.id,
-        username: user.username,
-        email: user.email,
-        role: user.role,
-        avatar: user.avatar,
-        bio: user.bio,
-      },
-      token,
-    });
-  } catch (error) {
-    console.error('Register error:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-}
+import type { LoginData, JWTPayload } from '../types/index.js';
 
 export async function login(req: Request, res: Response) {
   try {

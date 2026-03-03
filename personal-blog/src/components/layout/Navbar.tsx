@@ -13,7 +13,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { useAuth } from '@/contexts/AuthContext'
 import { cn } from '@/lib/utils'
-import { FileText, LogIn, LogOut, Menu, Moon, Search, Sun, UserPlus, X } from 'lucide-react'
+import { FileText, LogOut, Menu, Moon, Search, Sun, X } from 'lucide-react'
 import type { FormEvent } from 'react'
 import { useEffect, useLayoutEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
@@ -197,22 +197,7 @@ export function Navbar() {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-            ) : (
-              <>
-                <Button variant="ghost" size="sm" asChild>
-                  <Link to="/login">
-                    <LogIn className="h-4 w-4 mr-2" />
-                    登录
-                  </Link>
-                </Button>
-                <Button size="sm" className="bg-red-600 hover:bg-red-700 text-white" asChild>
-                  <Link to="/register">
-                    <UserPlus className="h-4 w-4 mr-2" />
-                    注册
-                  </Link>
-                </Button>
-              </>
-            )}
+            ) : null}
 
             {/* Theme Toggle */}
             <Button
@@ -277,22 +262,6 @@ export function Navbar() {
               >
                 管理后台
               </Link>
-            )}
-            {!isAuthenticated && (
-              <>
-                <Link
-                  to="/login"
-                  className="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground"
-                >
-                  登录
-                </Link>
-                <Link
-                  to="/register"
-                  className="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground"
-                >
-                  注册
-                </Link>
-              </>
             )}
           </div>
         </div>

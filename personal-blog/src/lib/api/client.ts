@@ -11,7 +11,6 @@ import type {
   CreateArticleRequest,
   CreateCommentRequest,
   LoginRequest,
-  RegisterRequest,
   UpdateArticleRequest,
 } from './types'
 
@@ -57,15 +56,6 @@ apiClient.interceptors.response.use(
 export const authApi = {
   login: async (data: LoginRequest): Promise<AuthResponse> => {
     const response = await apiClient.post<AuthResponse>('/auth/login', data)
-    if (response.data.token) {
-      localStorage.setItem('auth_token', response.data.token)
-      localStorage.setItem('user', JSON.stringify(response.data.user))
-    }
-    return response.data
-  },
-
-  register: async (data: RegisterRequest): Promise<AuthResponse> => {
-    const response = await apiClient.post<AuthResponse>('/auth/register', data)
     if (response.data.token) {
       localStorage.setItem('auth_token', response.data.token)
       localStorage.setItem('user', JSON.stringify(response.data.user))

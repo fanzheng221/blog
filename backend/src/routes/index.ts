@@ -1,6 +1,6 @@
 import express from 'express';
 import type { Router } from 'express';
-import { register, login, getMe } from '../controllers/authController.js';
+import { login, getMe } from '../controllers/authController.js';
 import { authenticateToken, requireAdmin } from '../middleware/auth.js';
 import {
   getArticles,
@@ -26,7 +26,6 @@ import aiRoutes from './ai.routes.js';
 const router: Router = express.Router();
 
 // Auth routes
-router.post('/auth/register', register);
 router.post('/auth/login', login);
 router.get('/auth/me', authenticateToken, getMe);
 

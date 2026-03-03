@@ -1,4 +1,4 @@
-import type { LoginRequest, RegisterRequest, User } from '@/lib/api'
+import type { LoginRequest, User } from '@/lib/api'
 import { authApi } from '@/lib/api'
 import React, { createContext, type ReactNode, useContext, useEffect, useState } from 'react'
 
@@ -8,7 +8,6 @@ interface AuthContextType {
   isAuthenticated: boolean
   isAdmin: boolean
   login: (data: LoginRequest) => Promise<void>
-  register: (data: RegisterRequest) => Promise<void>
   logout: () => void
   refreshUser: () => Promise<void>
 }
@@ -32,11 +31,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const login = async (data: LoginRequest) => {
     const response = await authApi.login(data)
-    setUser(response.user)
-  }
-
-  const register = async (data: RegisterRequest) => {
-    const response = await authApi.register(data)
     setUser(response.user)
   }
 
@@ -67,7 +61,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     isAuthenticated: !!user,
     isAdmin: user?.role === 'admin',
     login,
-    register,
     logout,
     refreshUser,
   }

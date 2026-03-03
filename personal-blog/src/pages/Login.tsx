@@ -113,12 +113,6 @@ export default function Login() {
                 '登录'
               )}
             </Button>
-            <p className="text-sm text-center text-muted-foreground">
-              还没有账户？{' '}
-              <Link to="/register" className="text-primary hover:underline font-medium">
-                注册
-              </Link>
-            </p>
             <div className="w-full border-t border-border pt-4">
               <p className="text-xs text-center text-muted-foreground mb-2">测试账户</p>
               <div className="text-xs text-center text-muted-foreground space-y-1">

@@ -11,7 +11,6 @@ import {
   CategoryManagement,
   Home,
   Login,
-  Register,
 } from '@/pages'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -30,7 +29,6 @@ function App() {
 
             {/* Auth Routes */}
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
 
             {/* Admin Routes */}
             <Route path="/admin/articles" element={<ArticleManagement />} />
