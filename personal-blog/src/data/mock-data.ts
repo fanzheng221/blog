@@ -8,33 +8,38 @@ export const categories: Category[] = [
 ]
 
 export const socialLinks: SocialLink[] = [
-  { name: 'Twitter', url: 'https://twitter.com', icon: 'twitter' },
-  { name: 'GitHub', url: 'https://github.com', icon: 'github' },
-  { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'linkedin' },
-  { name: 'Email', url: 'mailto:hello@example.com', icon: 'mail' },
+  { name: 'GitHub', url: 'https://github.com/fanzheng221', icon: 'github' },
+  { name: 'Email', url: 'mailto:fzlny@outlook.com', icon: 'mail' },
 ]
 
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'Design System',
-    description: 'A comprehensive design system for modern web applications',
-    url: 'https://github.com',
-    technologies: ['React', 'TypeScript', 'Figma'],
+    title: 'blog',
+    description: 'AI驱动的个人博客系统，支持动态分类管理和文章定时发布功能',
+    url: 'https://github.com/fanzheng221/blog',
+    technologies: ['TypeScript', 'React', 'Node.js'],
   },
   {
     id: '2',
-    title: 'AI Writing Assistant',
-    description: 'An intelligent tool for content creation and editing',
-    url: 'https://github.com',
-    technologies: ['Python', 'OpenAI', 'FastAPI'],
+    title: 'Rast',
+    description: '使用 Rust 语言开发的高性能开源项目，展示系统编程能力',
+    url: 'https://github.com/fanzheng221/Rast',
+    technologies: ['Rust'],
   },
   {
     id: '3',
-    title: 'Portfolio Template',
-    description: 'A minimalist portfolio template for creatives',
-    url: 'https://github.com',
-    technologies: ['Next.js', 'Tailwind CSS', 'shadcn/ui'],
+    title: 'StoryForge AI',
+    description: '一站式AI视频生成平台 - 从创意到成品视频的自动化解决方案',
+    url: 'https://github.com/fanzheng221/next',
+    technologies: ['TypeScript', 'Next.js'],
+  },
+  {
+    id: '4',
+    title: 'zm-platform',
+    description: 'AI 视频基础架构开源项目',
+    url: 'https://github.com/fanzheng221/zm-platform',
+    technologies: ['AI', 'Video Platform'],
   },
 ]
 

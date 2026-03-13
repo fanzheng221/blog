@@ -1,73 +1,97 @@
-# React + TypeScript + Vite
+# 个人博客系统前端 (Personal Blog Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+这是一个基于 React 19、TypeScript 和 Vite 构建的个人博客系统前端项目。
 
-Currently, two official plugins are available:
+## 技术栈
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **核心框架**: React 19.2 + TypeScript 5.9
+* **构建工具**: Vite 7.2
+* **路由管理**: React Router DOM 7
+* **样式处理**: TailwindCSS 3.4
+* **UI 组件库**: Radix UI Primitives + Lucide React 图标
+* **表单处理**: React Hook Form + Zod
+* **网络请求**: Axios
+* **Markdown 渲染**: React-Markdown + Remark-Gfm
 
-## React Compiler
+## 主要功能
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **前台展示**:
+  * 首页展示精选和最新文章
+  * 文章列表与分类过滤
+  * 文章详情展示（支持 Markdown 渲染及阅读量统计）
+  * 响应式设计，适配移动端和桌面端
+* **后台管理**:
+  * **文章管理**: 支持文章的创建、编辑、删除、状态切换等
+  * **分类管理**: 管理博客文章的分类
+  * **富文本支持**: 提供支持 Markdown 和图片封面的文章编辑器
+* **系统体验**: 支持系统默认及手动切换亮色/深色主题，使用 Toast 组件进行消息反馈
 
-## Expanding the ESLint configuration
+## 项目运行
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+请确保您的环境中已安装 Node.js (建议 v18+) 和 [pnpm](https://pnpm.io/)。
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 安装依赖
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 开发环境运行
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm dev
 ```
+开发服务器将默认在 `http://localhost:5173` 启动。
+
+### 生产环境构建
+
+```bash
+pnpm build
+```
+
+### 代码规范与格式化
+
+```bash
+# 运行 ESLint 检查
+pnpm lint
+
+# 修复 ESLint 报错
+pnpm lint:fix
+
+# 运行 Prettier 格式化检查
+pnpm format:check
+
+# 自动格式化代码
+pnpm format
+
+# 一键修复及格式化
+pnpm fix
+```
+
+## 目录结构说明
+
+```
+src/
+├── components/
+│   ├── features/       # 包含业务逻辑的组件库 (如 ArticleCard, ThemeToggle 等)
+│   ├── layout/         # 页面布局结构组件 (Header, Footer, AdminLayout 等)
+│   ├── providers/      # Context 状态提供者
+│   ├── routes/         # 路由保护及高阶路由控制
+│   └── ui/             # 基础的可复用 UI 视图组件库
+├── contexts/           # 全局 Context (Auth 等)
+├── hooks/              # 自定义 Hooks
+├── lib/
+│   ├── api/            # 服务端 API 请求层封装与类型定义
+│   └── utils.ts        # 全局工具函数
+├── pages/              # 页面级组件与视图
+└── types/              # TypeScript 公共类型定义
+```
+
+## 环境变量配置
+
+请在项目根目录复制 `.env.example` 为 `.env` (如果存在)，或直接创建 `.env.local` 文件，配置服务端 API 地址：
+
+```env
+VITE_API_URL=http://localhost:3001/api
+```
+注：在部署到生产环境（如 Zeabur 等）时，需要配置生产环境对应的 `VITE_API_URL` 变量。

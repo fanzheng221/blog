@@ -113,13 +113,6 @@ export default function Login() {
                 '登录'
               )}
             </Button>
-            <div className="w-full border-t border-border pt-4">
-              <p className="text-xs text-center text-muted-foreground mb-2">测试账户</p>
-              <div className="text-xs text-center text-muted-foreground space-y-1">
-                <p>邮箱: admin@blog.com</p>
-                <p>密码: admin123</p>
-              </div>
-            </div>
           </CardFooter>
         </form>
       </Card>

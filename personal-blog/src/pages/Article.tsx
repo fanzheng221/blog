@@ -1,9 +1,8 @@
-import { CommentSection } from '@/components/features/CommentSection'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { useTitle } from '@/hooks/useTitle'
-import type { Article } from '@/lib/api'
+import type { Article as ArticleType } from '@/lib/api'
 import { articlesApi } from '@/lib/api'
 import { ArrowLeft, Calendar, Clock, Loader2, Tag } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -13,31 +12,31 @@ import remarkGfm from 'remark-gfm'
 
 export function Article() {
   const { slug } = useParams<{ slug: string }>()
-  const [article, setArticle] = useState<Article | null>(null)
+  const [article, setArticle] = useState<ArticleType | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(false)
 
   useTitle(article?.title)
 
   useEffect(() => {
+    const loadArticle = async (articleSlug: string) => {
+      setIsLoading(true)
+      setError(false)
+      try {
+        const data = await articlesApi.getBySlug(articleSlug)
+        setArticle(data)
+      } catch (err) {
+        console.error('Failed to load article:', err)
+        setError(true)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
     if (slug) {
       loadArticle(slug)
     }
   }, [slug])
-
-  const loadArticle = async (articleSlug: string) => {
-    setIsLoading(true)
-    setError(false)
-    try {
-      const data = await articlesApi.getBySlug(articleSlug)
-      setArticle(data)
-    } catch (err) {
-      console.error('Failed to load article:', err)
-      setError(true)
-    } finally {
-      setIsLoading(false)
-    }
-  }
 
   if (isLoading) {
     return (
@@ -138,11 +137,6 @@ export function Article() {
         <div className="prose prose-lg dark:prose-invert max-w-none mb-16">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{article.content}</ReactMarkdown>
         </div>
-
-        <Separator className="my-12" />
-
-        {/* Comments */}
-        <CommentSection articleSlug={article.slug} />
       </article>
     </div>
   )

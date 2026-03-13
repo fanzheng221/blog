@@ -65,6 +65,43 @@ export default function ArticleEditor() {
   })
 
   useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        const response = await categoriesApi.getAll()
+        setCategories(response.categories)
+      } catch (error) {
+        console.error('Failed to load categories:', error)
+        toast.error('加载分类失败')
+      }
+    }
+
+    const loadArticle = async (id: string) => {
+      setIsLoading(true)
+      try {
+        const article = await articlesApi.getById(id)
+        setExistingArticle(article)
+
+        // 填充表单数据
+        setFormData({
+          title: article.title,
+          slug: article.slug,
+          excerpt: article.excerpt || '',
+          content: article.content,
+          cover_image: article.cover_image || '',
+          categoryId: article.category_id || '',
+          tags: article.tags?.join(', ') || '',
+          featured: article.featured || false,
+          status: article.status || 'published',
+          published_at: article.published_at || '',
+        })
+      } catch (error) {
+        console.error('Failed to load article:', error)
+        toast.error('加载文章失败')
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
     loadCategories()
     if (articleId && articleId !== 'new') {
       loadArticle(articleId)
@@ -88,43 +125,6 @@ export default function ArticleEditor() {
   // 判断预约发布按钮的显示逻辑
   const showScheduleButton = !isEditMode && formData.published_at // 新建模式 + 设置了预约时间
   const showUpdateScheduleButton = isEditMode && canEditScheduleTime && formData.published_at // 编辑模式 + 可修改预约时间 + 设置了预约时间
-
-  const loadCategories = async () => {
-    try {
-      const response = await categoriesApi.getAll()
-      setCategories(response.categories)
-    } catch (error) {
-      console.error('Failed to load categories:', error)
-      toast.error('加载分类失败')
-    }
-  }
-
-  const loadArticle = async (articleId: string) => {
-    setIsLoading(true)
-    try {
-      const article = await articlesApi.getById(articleId)
-      setExistingArticle(article)
-
-      // 填充表单数据
-      setFormData({
-        title: article.title,
-        slug: article.slug,
-        excerpt: article.excerpt || '',
-        content: article.content,
-        cover_image: article.cover_image || '',
-        categoryId: article.category_id || '',
-        tags: article.tags?.join(', ') || '',
-        featured: article.featured || false,
-        status: article.status || 'published',
-        published_at: article.published_at || '',
-      })
-    } catch (error) {
-      console.error('Failed to load article:', error)
-      toast.error('加载文章失败')
-    } finally {
-      setIsLoading(false)
-    }
-  }
 
   const generateSlug = (title: string) => {
     return title
@@ -181,18 +181,19 @@ export default function ArticleEditor() {
     setIsSaving(true)
     try {
       let status: 'draft' | 'published' | 'scheduled' = 'published'
-      let publishedAt: string | undefined = undefined
+      let publishedAt: string | undefined
 
       if (action === 'draft') {
         status = 'draft'
       } else {
-        // 如果设置了预约发布时间，则使用预约发布
-        if (formData.published_at) {
+        // 如果设置了预约发布时间，且该时间在未来，则使用预约发布
+        if (formData.published_at && new Date(formData.published_at) > new Date()) {
           status = 'scheduled'
           publishedAt = formData.published_at
         } else {
           // 否则立即发布
           status = 'published'
+          publishedAt = formData.published_at || undefined
         }
       }
 
