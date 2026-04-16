@@ -69,3 +69,9 @@ secrets/
 !README.md
 !backend/POSTGRES_SETUP.md
 !personal-blog/README.md
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
